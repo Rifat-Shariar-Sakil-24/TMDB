@@ -1,7 +1,12 @@
 <div>
     <ul>
-        <li *ngFor="let post of posts">
-            <app-movie-card [title]="post.title" [overview]="post.overview" [id]="post.id"></app-movie-card>
+        <li *ngFor="let movie of movies"  >
+            <app-movie-card 
+                [title]="movie.title" 
+                [overview]="movie.overview" 
+                [id]="movie.id"
+                [routerLink]="['/movie', movie.id]"> 
+            </app-movie-card>
         </li>
     </ul>
 </div>

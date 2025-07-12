@@ -15,7 +15,7 @@ templateUrl: './home.component.html',
 })
 export class HomeComponent implements OnInit{
 
-  posts : any[] = [];
+  movies : any[] = [];
 
   constructor(private movieService:MovieService){
 
@@ -24,9 +24,10 @@ export class HomeComponent implements OnInit{
   ngOnInit(): void {
    this.movieService.getMovies().subscribe(
     response => {
-      this.posts = response.results;
+      this.movies = response.results;
     }
    );
   }
+
 
 }
