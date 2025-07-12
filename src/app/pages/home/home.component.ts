@@ -2,29 +2,29 @@ import { CommonModule } from '@angular/common';
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { environment } from '../../../environments/environment.development';
+import { MovieService } from '../../core/services/movie.service';
 
 @Component({
   selector: 'app-home',
   standalone: true,
   imports: [CommonModule],
-  templateUrl: './home.component.html',
+templateUrl: './home.component.html',
   styleUrl: './home.component.css'
 })
 export class HomeComponent implements OnInit{
 
   posts : any[] = [];
 
-  constructor(private httpClient:HttpClient){
+  constructor(private movieService:MovieService){
 
   }
 
   ngOnInit(): void {
-    const headers = { 'Authorization': `Bearer ${environment.tmdbToken}` }
-    this.httpClient.get<any>("https://api.themoviedb.org/3/discover/movie?include_adult=false&include_video=false&language=en-US&page=1&sort_by=popularity.desc", {headers}).subscribe(
-      response => {
-        this.posts = response.results;
-      }
-    )
+   this.movieService.getMovies().subscribe(
+    response => {
+      this.posts = response.results;
+    }
+   );
   }
 
 }
