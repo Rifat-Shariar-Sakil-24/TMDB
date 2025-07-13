@@ -1,9 +1,7 @@
 import { CommonModule } from '@angular/common';
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
-import { environment } from '../../../environments/environment.development';
 import { MovieService } from '../../core/services/movie.service';
-import { MovieCardComponent } from "../../shared/components/movie-card/movie-card.component";
 import { MovieListComponent } from "./components/movie-list/movie-list.component";
 import { MovieCard } from '../../core/models/movie.model';
 import { NavbarComponent } from "../../shared/components/navbar/navbar.component";
