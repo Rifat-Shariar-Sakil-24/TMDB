@@ -1,5 +1,6 @@
 <div *ngIf="movie" class="movie-container">
-  <div class="movie-hero">
+  <div class="movie-hero" [ngStyle]="{'background-image': 'url(https://image.tmdb.org/t/p/original' + movie.backdrop_path + ')'}">
+  <div class="backdrop-overlay">
     <img
       class="poster"
       [src]="'https://image.tmdb.org/t/p/w500' + movie.poster_path"
@@ -18,6 +19,8 @@
       <p class="overview">{{ movie.overview }}</p>
     </div>
   </div>
+</div>
+
 
   <app-cast-list [castList]="movie.cast"/>
 </div>

@@ -1,5 +1,10 @@
-<div>
-    <h1>{{title}}</h1>
-    <p>{{id}}</p>
-    <p>{{overview}}</p>
+<div class="movie-card">
+  <img
+    *ngIf="movie.poster_path"
+    [src]="'https://image.tmdb.org/t/p/w185' + movie.poster_path"
+    [alt]="movie.title"
+  />
+  <div class="movie-card-info">
+    <p class="movie-card-title">{{ movie.title }}</p>
+  </div>
 </div>

@@ -1,13 +1,15 @@
+import {CastCard} from "./cast.model";
+
 export interface Genre {
   id: number;
   name: string;
 }
 
-export interface CastMember {
-  id: number;
-  name: string;
-  character: string;
-  profile_path: string | null;
+export interface MovieCard {
+  id: number,
+  title: string,
+  poster_path: string,
+  release_date: string
 }
 
 export interface MovieDetails {
@@ -15,10 +17,11 @@ export interface MovieDetails {
   title: string;
   poster_path: string;
   release_date: string;
+  backdrop_path: string;
   overview: string;
   tagline: string;
   genres: Genre[];
-  cast : CastMember[];
+  cast : CastCard[];
   original_language:string;
 }
 

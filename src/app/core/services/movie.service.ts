@@ -32,6 +32,7 @@ export class MovieService {
         title: raw.title,
         poster_path: raw.poster_path,
         release_date: raw.release_date,
+        backdrop_path:raw.backdrop_path,
         genres: raw.genres,
         overview: raw.overview,
         original_language: raw.original_language,

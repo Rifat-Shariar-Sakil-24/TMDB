@@ -1,5 +1,5 @@
 import { Component, Input } from '@angular/core';
-import { CastMember } from '../../../../core/models/movie.model';
+import { CastCard } from '../../../../core/models/cast.model';
 import { CommonModule } from '@angular/common';
 import { CastCardComponent } from "../../../../shared/components/cast-card/cast-card/cast-card.component";
 
@@ -11,5 +11,5 @@ import { CastCardComponent } from "../../../../shared/components/cast-card/cast-
   styleUrl: './cast-list.component.css'
 })
 export class CastListComponent {
-  @Input() castList : CastMember[] = [];
+  @Input() castList : CastCard[] = [];
 }

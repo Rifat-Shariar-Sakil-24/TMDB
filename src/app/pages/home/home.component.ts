@@ -5,6 +5,7 @@ import { environment } from '../../../environments/environment.development';
 import { MovieService } from '../../core/services/movie.service';
 import { MovieCardComponent } from "../../shared/components/movie-card/movie-card.component";
 import { MovieListComponent } from "./components/movie-list/movie-list.component";
+import { MovieCard } from '../../core/models/movie.model';
 
 @Component({
   selector: 'app-home',
@@ -15,7 +16,7 @@ templateUrl: './home.component.html',
 })
 export class HomeComponent implements OnInit{
 
-  movies : any[] = [];
+  movies : MovieCard[] = [];
 
   constructor(private movieService:MovieService){
 
