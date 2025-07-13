@@ -22,7 +22,9 @@ export interface MovieDetails {
   overview: string;
   tagline: string;
   genres: Genre[];
-  cast : CastCard[];
+  credits : {
+    cast : CastCard[]
+  }
   original_language:string;
 }
 
