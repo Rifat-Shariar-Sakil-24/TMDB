@@ -8,7 +8,7 @@ import { Component, Input } from '@angular/core';
   styleUrl: './movie-card.component.css'
 })
 export class MovieCardComponent {
-  @Input() id : number = 0;
-  @Input() title : string = "";
-  @Input() overview: string = "";
+  @Input() id! : number;
+  @Input() title! : string;
+  @Input() overview!: string;
 }

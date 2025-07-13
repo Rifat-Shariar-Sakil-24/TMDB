@@ -1,0 +1,8 @@
+<div class="cast-section">
+    <h2>Top Cast</h2>
+    <ul class="cast-list">
+      <li *ngFor="let cast of castList | slice:0:10">
+        <app-cast-card [cast]="cast"></app-cast-card>
+      </li>
+    </ul>
+</div>

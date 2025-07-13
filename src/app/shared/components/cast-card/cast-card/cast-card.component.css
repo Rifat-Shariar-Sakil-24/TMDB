@@ -1,0 +1,24 @@
+.cast-card {
+  background-color: #FFFFFF;
+  border-radius: 8px;
+  padding: 0;
+  text-align: center;
+  color: #191B1B;
+  box-shadow: 0 0 8px rgba(0, 0, 0, 0.3);
+  transition: transform 0.2s ease, box-shadow 0.2s ease; 
+}
+
+.cast-card img {
+  width: 100%;
+  border-radius: 8px;
+}
+
+.cast-name {
+  font-weight: bold;
+  margin-top: 0.5rem;
+}
+
+.cast-character {
+  font-size: 0.9rem;
+  color: #191B1B;
+}

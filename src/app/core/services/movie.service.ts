@@ -30,10 +30,18 @@ export class MovieService {
     return {
         id: raw.id,
         title: raw.title,
-        overview: raw.overview,
         poster_path: raw.poster_path,
         release_date: raw.release_date,
-        genres: raw.genres
+        genres: raw.genres,
+        overview: raw.overview,
+        original_language: raw.original_language,
+        tagline: raw.tagline,
+        cast: raw.credits.cast.map((c: any) => ({
+        id: c.id,
+        name: c.name,
+        character: c.character,
+        profile_path: c.profile_path
+        }))
     };
   }
 

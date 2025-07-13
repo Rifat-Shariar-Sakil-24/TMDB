@@ -1,8 +1,28 @@
-<div>
-    <ul>
-        <!-- <li *ngFor="let genre of genres">
-            {{genre.name}}
-        </li> -->
-        {{movieData | json}}
-    </ul>
+<div *ngIf="movie" class="movie-container">
+  <div class="movie-hero">
+    <img
+      class="poster"
+      [src]="'https://image.tmdb.org/t/p/w500' + movie.poster_path"
+      [alt]="movie.title"
+    />
+
+    <div class="movie-info">
+      <h1>{{ movie.title }}</h1>
+      <p class="release-date">{{ movie.release_date }} ({{ movie.original_language?.toUpperCase() }})</p>
+      <p class="tagline"><i>{{ movie.tagline }}</i></p>
+      <p class="genres">
+        <span class="genre-badge" *ngFor="let genre of movie.genres">
+          {{ genre.name }}
+        </span>
+      </p>
+      <p class="overview">{{ movie.overview }}</p>
+    </div>
+  </div>
+
+  <app-cast-list [castList]="movie.cast"/>
 </div>
+
+<div *ngIf="!movie">
+  <p>Loading Movie Details</p>
+</div>
+
