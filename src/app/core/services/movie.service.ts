@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable, numberAttribute } from '@angular/core';
-import { environment } from '../../../environments/environment.development';
+import { environment } from '../../../environments/environment';
 import { map, Observable } from 'rxjs';
 import { ApiEndpoints } from '../constants/api.config';
 import { MovieDetails } from '../models/movie.model';
