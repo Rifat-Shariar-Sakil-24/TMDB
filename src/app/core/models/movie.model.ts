@@ -9,7 +9,8 @@ export interface MovieCard {
   id: number,
   title: string,
   poster_path: string,
-  release_date: string
+  release_date: string,
+  vote_average: number
 }
 
 export interface MovieDetails {

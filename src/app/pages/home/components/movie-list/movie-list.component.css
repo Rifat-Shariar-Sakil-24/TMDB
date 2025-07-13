@@ -1,11 +1,31 @@
-.movie-card-section {
-  margin-top: 3rem;
+
+.movie-list-section {
+  padding: 30px 40px;
+  background-color: #f4f4f4;
 }
 
-.movie-card-list {
-  list-style: none;
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
-  gap: 1rem;
-  padding: 0;
+.section-title {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: #000;
+  margin-bottom: 20px;
+  padding-left: 10px;
+  border-left: 4px solid #01b4e4;
+}
+
+.movie-list-container {
+  overflow-x: auto;
+}
+
+.movies-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+}
+
+@media (min-width: 768px) {
+  .movies-grid {
+    justify-content: flex-start;
+  }
 }

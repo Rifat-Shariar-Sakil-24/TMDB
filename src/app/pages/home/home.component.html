@@ -1,10 +1,11 @@
-<div>
-    <!-- <ul>
-        <li *ngFor="let post of posts">
-            <app-movie-card [title]="post.title" [overview]="post.overview"></app-movie-card>
-        </li>
-    </ul> -->
 
-    <app-home-movie-list [movies]="movies"/>
-    
+<div class="home-container">
+  <div class="hero-section">
+    <div class="hero-content">
+      <h1>Welcome to KAZ Movie Database</h1>
+      <p>Discover millions of movies, TV shows and people to discover. Explore now.</p>
+    </div>
+  </div>
+  
+  <app-home-movie-list [movies]="movies"></app-home-movie-list>
 </div>
