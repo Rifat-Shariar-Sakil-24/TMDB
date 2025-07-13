@@ -1,24 +1,38 @@
 .cast-card {
-  background-color: #FFFFFF;
+  width: 185px;
+  margin: 0.5rem;
   border-radius: 8px;
-  padding: 0;
-  text-align: center;
-  color: #191B1B;
-  box-shadow: 0 0 8px rgba(0, 0, 0, 0.3);
-  transition: transform 0.2s ease, box-shadow 0.2s ease; 
+  overflow: hidden;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  background-color: #fff;
+  transition: transform 0.3s ease;
 }
 
 .cast-card img {
   width: 100%;
-  border-radius: 8px;
+  height: 278px;
+  object-fit: cover;
+}
+
+.cast-card:hover {
+  transform: scale(1.05);
+}
+
+.cast-info {
+  padding: 10px;
 }
 
 .cast-name {
   font-weight: bold;
-  margin-top: 0.5rem;
+  font-size: 0.9rem;
+  margin: 0;
+  color: #000;
+  text-align: center;
 }
 
 .cast-character {
-  font-size: 0.9rem;
-  color: #191B1B;
+  font-size: 0.8rem;
+  color: #666;
+  margin: 4px 0 0 0;
+  text-align: center;
 }

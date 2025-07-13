@@ -4,8 +4,31 @@
 
 .cast-list {
   list-style: none;
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
-  gap: 1rem;
-  padding: 0;
+  display: flex;
+  flex-wrap: nowrap;
+  gap: 20px;
+  overflow-x: auto;
+  overflow-y: hidden;
+  scroll-behavior: smooth;
+  padding: 10px 0;
+}
+
+@media (min-width: 768px) {
+  .cast-list {
+    justify-content: flex-start;
+  }
+}
+
+/* Optional scrollbar styling */
+.cast-list::-webkit-scrollbar {
+  height: 8px;
+}
+
+.cast-list::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.cast-list::-webkit-scrollbar-thumb {
+  background-color: rgba(0,0,0,0.3);
+  border-radius: 4px;
 }

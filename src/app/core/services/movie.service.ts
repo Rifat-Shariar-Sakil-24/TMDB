@@ -22,6 +22,5 @@ export class MovieService {
     .get<any>(ApiEndpoints.movieDetails(movieId), {headers});
   }
 
- 
 
 }

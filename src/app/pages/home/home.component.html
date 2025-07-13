@@ -1,11 +1,9 @@
-
 <div class="home-container">
-  <div class="hero-section">
-    <div class="hero-content">
-      <h1>Welcome to KAZ Movie Database</h1>
-      <p>Discover millions of movies, TV shows and people to discover. Explore now.</p>
+    <app-navbar/>
+    <div class="banner">
+        <app-banner/>
     </div>
-  </div>
-  
-  <app-home-movie-list [movies]="movies"></app-home-movie-list>
+    <app-home-movie-list 
+        [movies]="movies">
+    </app-home-movie-list>
 </div>

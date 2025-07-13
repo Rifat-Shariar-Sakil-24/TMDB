@@ -1,0 +1,61 @@
+<nav class="tmdb-navbar">
+  <div class="navbar-container">
+
+    <div class="navbar-logo">
+      <a [routerLink]="['/']">
+        <img src="/images/logo.jpg" alt="MovieDB Logo">
+      </a>
+    </div>
+
+
+    <div class="navbar-links">
+      <ul class="nav-items">
+        <li class="nav-item">
+          <a [routerLink]="['/']" [routerLinkActive]="'active'" [routerLinkActiveOptions]="{exact: true}">Home</a>
+        </li>
+        <li class="nav-item dropdown">
+          <a>Movies <span class="dropdown-icon"></span></a>
+          <div class="dropdown-content">
+            <a [routerLink]="['/']">Popular</a>
+            <a [routerLink]="['/']">Now Playing</a>
+            <a [routerLink]="['/']">Upcoming</a>
+            <a [routerLink]="['/']">Top Rated</a>
+          </div>
+        </li>
+        <li class="nav-item dropdown">
+          <a>TV Shows <span class="dropdown-icon"></span></a>
+          <div class="dropdown-content">
+            <a [routerLink]="['/']">Popular</a>
+            <a [routerLink]="['/']">Airing Today</a>
+            <a [routerLink]="['/']">On TV</a>
+            <a [routerLink]="['/']">Top Rated</a>
+          </div>
+        </li>
+        <li class="nav-item">
+          <a [routerLink]="['/']" >People</a>
+        </li>
+      </ul>
+    </div>
+
+
+    <div class="navbar-search">
+      <form class="search-form">
+        <input
+          type="text"
+
+          name="search"
+          placeholder="Search for a movie, tv show, person..."
+          class="search-input">
+        <button type="submit" class="search-button">
+          <i class="fa fa-search"></i>
+        </button>
+      </form>
+    </div>
+
+   
+    <div class="navbar-user">
+      <a [routerLink]="['/login']" class="login-button">Login</a>
+      <a [routerLink]="['/signup']" class="signup-button">Join KazDB</a>
+    </div>
+  </div>
+</nav>

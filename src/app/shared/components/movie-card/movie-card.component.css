@@ -50,10 +50,13 @@
   font-weight: bold;
   margin: 0;
   color: #000;
+  text-align: center;
+
 }
 
 .release-date {
   font-size: 0.8rem;
   color: #666;
   margin: 4px 0 0 0;
+  text-align: center;
 }

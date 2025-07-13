@@ -1,4 +1,7 @@
+<app-navbar/>
+
 <div *ngIf="movie" class="movie-container">
+  
   <div class="movie-hero" [ngStyle]="{'background-image': 'url(https://image.tmdb.org/t/p/original' + movie.backdrop_path + ')'}">
   <div class="backdrop-overlay">
     <img
