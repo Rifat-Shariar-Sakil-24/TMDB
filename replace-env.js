@@ -7,7 +7,7 @@ if (!apiKey) {
   process.exit(1);
 }
 
-const filePath = './src/environments/environment.example.ts';
+const filePath = './src/environments/environment.ts';
 
 let content = fs.readFileSync(filePath, 'utf8');
 
