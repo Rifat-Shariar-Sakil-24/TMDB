@@ -28,6 +28,8 @@ export class HomeComponent implements OnInit{
       this.movies = response.results;
     }
    );
+
+   console.log("checking console log production");
   }
 
 
