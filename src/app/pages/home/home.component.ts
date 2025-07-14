@@ -29,7 +29,8 @@ export class HomeComponent implements OnInit{
     }
    );
 
-   console.log("checking console log production");
+   console.log("checking console log production"); // should not be console logged in production 
+
   }
 
 
