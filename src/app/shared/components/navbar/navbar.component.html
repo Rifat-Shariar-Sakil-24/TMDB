@@ -38,20 +38,8 @@
     </div>
 
 
-    <div class="navbar-search">
-      <form class="search-form">
-        <input
-          type="text"
-
-          name="search"
-          placeholder="Search for a movie, tv show, person..."
-          class="search-input">
-        <button type="submit" class="search-button">
-          <i class="fa fa-search"></i>
-        </button>
-      </form>
-    </div>
-
+    <app-search-box></app-search-box>
+    
    
     <div class="navbar-user">
       <a [routerLink]="['/login']" class="login-button">Login</a>

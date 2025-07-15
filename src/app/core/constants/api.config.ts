@@ -8,6 +8,9 @@ export const ApiEndpoints = {
   movieListBaseURL: `${API_BASE_URL}/discover/movie?sort_by=popularity.desc`,
   movieDetails: (movieId: string | number) =>
     `${API_BASE_URL}/movie/${movieId}?append_to_response=credits`,
+  searchSuggestions: (query: string) =>
+  `${API_BASE_URL}/search/multi?include_adult=false&language=en-US&page=1&query=${encodeURIComponent(query)}`
+
 };
 
 
