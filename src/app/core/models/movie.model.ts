@@ -1,4 +1,4 @@
-import {CastCard} from "./cast.model";
+import { CastCard } from './cast.model';
 
 export interface Genre {
   id: number;
@@ -6,11 +6,12 @@ export interface Genre {
 }
 
 export interface MovieCard {
-  id: number,
-  title: string,
-  poster_path: string,
-  release_date: string,
-  vote_average: number
+  id: number;
+  title: string;
+  poster_path: string;
+  release_date: string;
+  vote_average: number;
+  popularity: number;
 }
 
 export interface MovieDetails {
@@ -22,10 +23,8 @@ export interface MovieDetails {
   overview: string;
   tagline: string;
   genres: Genre[];
-  credits : {
-    cast : CastCard[]
-  }
-  original_language:string;
+  credits: {
+    cast: CastCard[];
+  };
+  original_language: string;
 }
-
-

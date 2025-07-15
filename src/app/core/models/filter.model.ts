@@ -1,5 +1,7 @@
 export interface Filter {
-  genreId: number,
-  name: string;
+  genreId?: number,
+  certificate?: string,
+  sort_by?:string,
+  page?:number
 }
 

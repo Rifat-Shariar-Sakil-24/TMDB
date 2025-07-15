@@ -5,7 +5,7 @@ const API_BASE_URL = environment.production
   : '';
 
 export const ApiEndpoints = {
-  movieListBaseURL: `${API_BASE_URL}/discover/movie?sort_by=popularity.desc`,
+  movieListBaseURL: `${API_BASE_URL}/discover/movie?`,
   movieDetails: (movieId: string | number) =>
     `${API_BASE_URL}/movie/${movieId}?append_to_response=credits`,
   searchSuggestions: (query: string) =>

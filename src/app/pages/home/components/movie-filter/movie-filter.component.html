@@ -1,7 +1,7 @@
 <div class="filters" style="display: flex; gap: 20px;">
   <div>
     <label for="genreSelect">Genre</label>
-    <select id="genreSelect" [(ngModel)]="selectedGenre" (ngModelChange)="emitFilterChange()">
+    <select id="genreSelect" [(ngModel)]="movieFilter.genreId" (ngModelChange)="emitFilterChange()">
       <option value=0>-- Select Genre --</option>
       <option *ngFor="let genre of genres" [value]="genre.id">
         {{ genre.name }}
@@ -12,7 +12,7 @@
 
   <div>
     <label for="certificationSelect">Certification</label>
-    <select id="certificationSelect" [(ngModel)]="selectedCertificate" (ngModelChange)="emitFilterChange()">
+    <select id="certificationSelect" [(ngModel)]="movieFilter.certificate" (ngModelChange)="emitFilterChange()">
       <option value="">-- Select Certification --</option>
       <option *ngFor="let cf of certifications" [value]="cf.certification">
         {{ cf.certification }} - {{ cf.meaning }}
@@ -22,7 +22,7 @@
 
   <div>
     <label for="sortBySelect">Sort By</label>
-    <select id="sortBySelect" [(ngModel)]="selectedSort" (ngModelChange)="emitFilterChange()">
+    <select id="sortBySelect" [(ngModel)]="movieFilter.sort_by" (ngModelChange)="emitFilterChange()">
       <option *ngFor="let sort of sorts" [value]="sort.value">
         {{ sort.label }}
       </option>
