@@ -1,0 +1,42 @@
+<div class="filters" style="display: flex; gap: 20px;">
+  <div>
+    <label for="genreSelect">Genre</label>
+    <select id="genreSelect" [(ngModel)]="selectedGenre" (ngModelChange)="emitFilterChange()">
+      <option value=0>-- Select Genre --</option>
+      <option *ngFor="let genre of genres" [value]="genre.id">
+        {{ genre.name }}
+      </option>
+    </select>
+  </div>
+
+
+  <div>
+    <label for="certificationSelect">Certification</label>
+    <select id="certificationSelect" [(ngModel)]="selectedCertificate" (ngModelChange)="emitFilterChange()">
+      <option value="">-- Select Certification --</option>
+      <option *ngFor="let cf of certifications" [value]="cf.certification">
+        {{ cf.certification }} - {{ cf.meaning }}
+      </option>
+    </select>
+  </div>
+
+  <div>
+    <label for="sortBySelect">Sort By</label>
+    <select id="sortBySelect" [(ngModel)]="selectedSort" (ngModelChange)="emitFilterChange()">
+      <option *ngFor="let sort of sorts" [value]="sort.value">
+        {{ sort.label }}
+      </option>
+    </select>
+  </div>
+
+  <div>
+    <button class="clear-filters" (click)="clearFilters()">Clear Filters</button>
+  </div>
+</div>
+
+
+
+
+
+
+

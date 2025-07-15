@@ -7,11 +7,12 @@ import { MovieCard } from '../../core/models/movie.model';
 import { NavbarComponent } from "../../shared/components/navbar/navbar.component";
 import { BannerComponent } from "./components/banner/banner.component";
 import { SearchResultsComponent } from "../../shared/components/search-results/search-results.component";
+import { MovieFilterComponent } from './components/movie-filter/movie-filter.component';
 
 @Component({
   selector: 'app-home',
   standalone: true,
-  imports: [CommonModule, MovieListComponent, NavbarComponent, BannerComponent, SearchResultsComponent],
+  imports: [CommonModule, MovieListComponent, NavbarComponent, BannerComponent, SearchResultsComponent, MovieFilterComponent],
 templateUrl: './home.component.html',
   styleUrl: './home.component.css'
 })

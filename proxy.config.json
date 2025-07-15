@@ -13,5 +13,15 @@
         "target" : "https://api.themoviedb.org/3",
         "secure" : false,
         "changeOrigin": true
+    },
+     "/certification":{
+        "target" : "https://api.themoviedb.org/3",
+        "secure" : false,
+        "changeOrigin": true
+    },
+    "/genre":{
+        "target" : "https://api.themoviedb.org/3",
+        "secure" : false,
+        "changeOrigin": true
     }
 }

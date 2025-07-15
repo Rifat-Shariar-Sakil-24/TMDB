@@ -9,8 +9,6 @@ import { environment } from '../../../../environments/environment';
 })
 export class SearchService {
 
-
-
   private searchTerm = new BehaviorSubject<string>('');
   searchTerm$ = this.searchTerm.asObservable();
   

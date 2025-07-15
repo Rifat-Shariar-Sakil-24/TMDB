@@ -1,0 +1,59 @@
+.filters {
+  display: flex;
+  gap: 10px;
+  align-items: flex-start;
+  padding: 10px 0;
+  width: 100%;
+}
+
+.filters > div {
+  display: flex;
+  flex-direction: column;
+  flex: 1;  /* Equal width for all columns */
+  min-width: 0;  /* Allow shrinking on small screens */
+}
+
+label {
+  font-weight: 600;
+  margin-bottom: 5px;
+  font-size: 14px;
+}
+
+select {
+  padding: 6px 10px;
+  font-size: 14px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  background-color: white;
+  width: 100%;  /* Full width of container */
+  cursor: pointer;
+  transition: border-color 0.2s;
+}
+
+select:focus {
+  border-color: #007bff;
+  outline: none;
+}
+
+.clear-filters {
+  padding: 6px 10px;
+  font-size: 14px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  background-color: white;
+  width: 100%;  /* Full width of container */
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.clear-filters:hover {
+  background-color: #f0f0f0;
+}
+
+/* Ensure proper spacing on mobile */
+@media (max-width: 768px) {
+  .filters {
+    flex-direction: column;
+    gap: 15px;
+  }
+}
