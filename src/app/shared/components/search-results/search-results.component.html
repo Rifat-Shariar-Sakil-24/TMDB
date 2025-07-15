@@ -1,1 +1,5 @@
-<p>search-results works!</p>
+<ul *ngIf = "suggestions.length > 0">
+    <li  *ngFor="let suggestion of suggestions">
+        {{suggestion.name || suggestion.title}}
+    </li>
+</ul>

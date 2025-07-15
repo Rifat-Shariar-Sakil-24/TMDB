@@ -1,0 +1,57 @@
+ul {
+  position: absolute;
+  top: 64px; 
+  left: 0;
+  right: 0;
+  background: rgba(0, 0, 0, 0.9);
+  border-radius: 4px;
+  padding: 8px 0;
+  max-height: 300px;
+  overflow-y: auto;
+  z-index: 1000;
+}
+
+li {
+  list-style: none;
+  padding: 8px 16px;
+  color: white;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+li:hover {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+ul {
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+
+ul::-webkit-scrollbar {
+  width: 8px;
+}
+
+ul::-webkit-scrollbar-track {
+  background: rgba(0, 0, 0, 0.2);
+}
+
+ul::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 4px;
+}
+
+ul::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 255, 255, 0.3);
+}
+
+@media (max-width: 768px) {
+  ul {
+    max-height: 200px;
+    padding: 6px 0;
+  }
+
+  li {
+    padding: 6px 12px;
+  }
+}

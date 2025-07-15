@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { SearchService } from '../../../../core/services/search/search.service';
 import { FormControl, ReactiveFormsModule } from '@angular/forms';
-import { debounceTime, distinctUntilChanged, switchMap } from 'rxjs';
+import { debounceTime, distinctUntilChanged, filter, map, switchMap } from 'rxjs';
 
 
 @Component({
@@ -20,8 +20,10 @@ export class SearchBoxComponent implements OnInit{
 
   ngOnInit(): void {
     this.searchControl.valueChanges.pipe(
+      map((term: string) => term.trim()),
       debounceTime(300), 
       distinctUntilChanged(),
+      //filter((term: string) => term.length >= 1)
      ).subscribe((term:string)=>{
       this.searchService.setSearchTerm(term);
      }) 
