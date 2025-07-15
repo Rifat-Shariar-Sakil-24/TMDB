@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, ElementRef, HostListener, OnInit } from '@angular/core';
 import { SearchService } from '../../../core/services/search/search.service';
 import { CommonModule } from '@angular/common';
 
@@ -11,7 +11,10 @@ import { CommonModule } from '@angular/common';
 })
 export class SearchResultsComponent implements OnInit{
 
-  constructor(private searchService : SearchService){}
+  constructor(
+    private searchService : SearchService,
+    private eRef : ElementRef
+  ){}
 
   suggestions : any[] = [];
   ngOnInit(): void {
@@ -25,6 +28,14 @@ export class SearchResultsComponent implements OnInit{
       })
 
     })
+  }
+
+
+  @HostListener('document:click', ['$event'])
+  clickOutside(event: MouseEvent) {
+    if (!this.eRef.nativeElement.contains(event.target)) {
+      this.suggestions = []; 
+    }
   }
 
   
