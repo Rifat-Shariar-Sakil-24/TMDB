@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { BehaviorSubject } from 'rxjs';
+import { BehaviorSubject, EMPTY } from 'rxjs';
 import { ApiEndpoints } from './../../constants/api.config';
 import { environment } from '../../../../environments/environment';
 
@@ -22,6 +22,7 @@ export class SearchService {
   }
 
   getSuggestions(term : string){
+    if(term.length==0) return EMPTY;
     const headers = { Authorization: environment.tmdbToken }
     return this.httpClient.get<any>(ApiEndpoints.searchSuggestions(term), {headers});
   }

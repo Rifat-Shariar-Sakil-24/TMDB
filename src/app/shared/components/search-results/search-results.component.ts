@@ -11,6 +11,9 @@ import { CommonModule } from '@angular/common';
 })
 export class SearchResultsComponent implements OnInit{
 
+  searchTriggered = false;
+  
+
   constructor(
     private searchService : SearchService,
     private eRef : ElementRef
@@ -18,13 +21,20 @@ export class SearchResultsComponent implements OnInit{
 
   suggestions : any[] = [];
   ngOnInit(): void {
-      this.searchService.searchTerm$.subscribe(searchTerm => {
-      console.log(searchTerm);
+      this.startSearch();
+  }
+
+  startSearch(){
+    this.searchService.searchTerm$.subscribe(searchTerm => {
+      console.log(searchTerm.length);
+      if(searchTerm.length==0) {
+        this.searchTriggered=false;
+      }
+
+      //when search length is zero this won't execute
       this.searchService.getSuggestions(searchTerm).subscribe(response => {
-       // console.log(response.name);
-       console.log(response);
        this.suggestions = response.results;
-       console.log(this.suggestions.length)
+       this.searchTriggered = true; 
       })
 
     })
@@ -35,6 +45,7 @@ export class SearchResultsComponent implements OnInit{
   clickOutside(event: MouseEvent) {
     if (!this.eRef.nativeElement.contains(event.target)) {
       this.suggestions = []; 
+      this.searchTriggered = false;
     }
   }
 

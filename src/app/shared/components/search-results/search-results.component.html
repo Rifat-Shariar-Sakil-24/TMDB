@@ -1,5 +1,11 @@
-<ul *ngIf = "suggestions.length > 0">
-    <li  *ngFor="let suggestion of suggestions">
-        {{suggestion.name || suggestion.title}}
+<ul *ngIf="searchTriggered">
+  <ng-container *ngIf="suggestions.length > 0; else noResults">
+    <li *ngFor="let suggestion of suggestions">
+      {{ suggestion.name || suggestion.title }}
     </li>
+  </ng-container>
+
+  <ng-template #noResults>
+    <li style="cursor: default; color: #ccc;">No data found</li>
+  </ng-template>
 </ul>
