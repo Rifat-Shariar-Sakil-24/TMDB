@@ -6,12 +6,13 @@ import { MovieDetails } from '../../core/models/movie.model';
 import { CastListComponent } from "./components/cast-list/cast-list.component";
 import { CastCardComponent } from "../../shared/components/cast-card/cast-card/cast-card.component";
 import { NavbarComponent } from "../../shared/components/navbar/navbar.component";
+import { PersonListComponent } from "./components/person-list/person-list.component";
 
 
 @Component({
   selector: 'app-movie-details',
   standalone: true,
-  imports: [CommonModule, CastListComponent, CastCardComponent, NavbarComponent],
+  imports: [CommonModule, CastListComponent, CastCardComponent, NavbarComponent, PersonListComponent],
   templateUrl: './movie-details.component.html',
   styleUrl: './movie-details.component.css'
 })

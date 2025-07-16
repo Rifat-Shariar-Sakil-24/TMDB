@@ -1,0 +1,11 @@
+<div class="cast-card">
+  <img
+    *ngIf="cast.profile_path"
+    [src]="'https://image.tmdb.org/t/p/w185' + cast.profile_path"
+    [alt]="cast.name"
+  />
+  <div class="cast-info">
+    <p class="cast-name">{{ cast.name }}</p>
+    <p class="cast-character">as {{ cast.character }}</p>
+  </div>
+</div>

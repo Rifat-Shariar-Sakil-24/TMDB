@@ -1,4 +1,4 @@
-import { CastCard } from './cast.model';
+import { PersonCard } from './person.model';
 
 export interface Genre {
   id: number;
@@ -24,7 +24,7 @@ export interface MovieDetails {
   tagline: string;
   genres: Genre[];
   credits: {
-    cast: CastCard[];
+    cast: PersonCard[];
   };
   original_language: string;
 }

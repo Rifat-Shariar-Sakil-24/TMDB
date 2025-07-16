@@ -1,5 +1,5 @@
 import { HttpClient } from '@angular/common/http';
-import { Injectable, numberAttribute } from '@angular/core';
+import { Injectable } from '@angular/core';
 import { environment } from '../../../environments/environment';
 import { map, Observable } from 'rxjs';
 import { ApiEndpoints } from '../constants/api.config';
@@ -16,7 +16,7 @@ export class MovieService {
   //   const headers = { Authorization: environment.tmdbToken };
   //   return this.httpClient.get<any>(ApiEndpoints.movieListBaseURL, { headers });
   // }
-  
+
   getMovies(movieFilter: Filter): Observable<any> {
     const headers = { Authorization: environment.tmdbToken };
 
@@ -32,17 +32,13 @@ export class MovieService {
       params.push(`sort_by=${movieFilter.sort_by}`);
     }
 
-    // // Add certification
-    // if (movieFilter.certificate) {
-    //   params.push(`certification_country=AU`);
-    //   params.push(
-    //     `certification=${encodeURIComponent(movieFilter.certificate)}`,
-    //   );
-    // }
+    if (movieFilter.page) {
+      params.push(`page=${movieFilter.page}`);
+    }
 
     // Join params with &
     if (params.length > 0) {
-      url += params.join('&');
+      url += '?' + params.join('&');
     }
 
     return this.httpClient.get<any>(url, { headers });

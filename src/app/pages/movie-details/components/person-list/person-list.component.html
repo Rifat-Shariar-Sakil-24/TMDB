@@ -2,10 +2,10 @@
     <h2>Top Cast</h2>
     <ul class="cast-list">
       <li *ngFor="let cast of castList | slice:0:10">
-        <app-cast-card 
+        <app-person-card 
         [cast]="cast"
          [routerLink]="['/person', cast.id]">
-        ></app-cast-card>
+        ></app-person-card>
       </li>
     </ul>
 </div>

@@ -1,5 +1,5 @@
 import { Component, Input } from '@angular/core';
-import { CastCard } from '../../../../core/models/cast.model';
+import { PersonCard } from '../../../../core/models/person.model';
 import { CommonModule } from '@angular/common';
 
 @Component({
@@ -10,5 +10,5 @@ import { CommonModule } from '@angular/common';
   styleUrl: './cast-card.component.css'
 })
 export class CastCardComponent {
-    @Input() cast!: CastCard;
+    @Input() cast!: PersonCard;
 }

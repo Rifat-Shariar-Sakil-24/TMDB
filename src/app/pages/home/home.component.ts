@@ -30,6 +30,7 @@ export class HomeComponent implements OnInit {
   movieFilterObj!: Filter;
   movies: MovieCard[] = [];
   totalPages = 1;
+  currentPage = 1;
 
   constructor(
     private movieService: MovieService,
@@ -38,7 +39,8 @@ export class HomeComponent implements OnInit {
 
   ngOnInit(): void {
     this.movieFilterService.movieFilter$.subscribe( movieFilterObj => {
-      this.movieFilterObj = movieFilterObj;
+      this.movieFilterObj = { ...movieFilterObj, page: this.currentPage };
+      
       this.getMoviesFromPublisher();
     })
 
@@ -47,9 +49,36 @@ export class HomeComponent implements OnInit {
 
   getMoviesFromPublisher(){
      this.movieService.getMovies(this.movieFilterObj).subscribe((response) => {
-      console.log("heeeeeeeeeeeee");
+     // console.log("heeeeeeeeeeeee");
+     // console.log(response.results);
+     // console.log(this.movieFilterObj);
       this.movies = response.results;
       this.totalPages = response.total_pages;
     });
   }
+
+  goToPage(page: number) {
+    if (page >= 1 && page <= this.totalPages) {
+      this.currentPage = page;
+      this.movieFilterObj.page = page;
+      this.getMoviesFromPublisher();
+    }
+  }
+
+  nextPage() {
+    if (this.currentPage < this.totalPages) {
+      this.goToPage(this.currentPage + 1);
+    }
+  }
+
+  previousPage() {
+    if (this.currentPage > 1) {
+      this.goToPage(this.currentPage - 1);
+    }
+  }
+
+  getPages(): number[] {
+  const totalPages = 10;
+  return Array.from({ length: totalPages }, (_, i) => i + 1);
+}
 }

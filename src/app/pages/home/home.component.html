@@ -6,8 +6,30 @@
     </div>
 
     <app-movie-filter/>
-     
-    <app-home-movie-list 
+
+    <app-home-movie-list
         [movies]="movies">
     </app-home-movie-list>
+
+    <div class="pagination-container" *ngIf="totalPages > 1">
+        <button class="pagination-btn" (click)="previousPage()" [disabled]="currentPage === 1">
+          Previous
+        </button>
+
+        <!-- Display page numbers -->
+        <div class="page-numbers">
+          <button
+            class="page-btn"
+            *ngFor="let page of getPages()"
+            (click)="goToPage(page)"
+            [class.active]="page === currentPage"
+          >
+            {{ page }}
+          </button>
+        </div>
+
+        <button class="pagination-btn" (click)="nextPage()" [disabled]="currentPage === totalPages">
+          Next
+        </button>
+    </div>
 </div>
