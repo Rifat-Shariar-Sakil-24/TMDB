@@ -1,0 +1,10 @@
+<div>
+    <app-movie-list-vertical *ngIf="movies"  [movies]="movies"></app-movie-list-vertical>
+
+    <app-pagination-bar
+    [totalPages]="totalPages"
+    [(currentPage)]="currentPage"
+    (currentPageChange)="getResults()"
+  >
+  </app-pagination-bar>
+</div>

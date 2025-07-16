@@ -26,7 +26,7 @@
 
 <!-- 
   <app-cast-list [castList]="movie.credits.cast"/> -->
-  <app-person-list [castList] = "movie.cast"></app-person-list>
+  <app-person-list *ngIf="movie.cast" [castList] = "movie.cast"></app-person-list>
   
 
 </div>

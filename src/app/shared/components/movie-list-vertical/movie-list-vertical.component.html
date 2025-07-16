@@ -1,0 +1,7 @@
+<ul>
+  <li *ngFor="let movie of movies">
+    <app-movie-card-wide [movie]="movie" [routerLink]="['/movie', movie.id]"
+      >>
+    </app-movie-card-wide>
+  </li>
+</ul>

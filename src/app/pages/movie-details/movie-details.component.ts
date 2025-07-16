@@ -12,13 +12,13 @@ import { PersonListComponent } from "./components/person-list/person-list.compon
 @Component({
   selector: 'app-movie-details',
   standalone: true,
-  imports: [CommonModule, CastListComponent, CastCardComponent, NavbarComponent, PersonListComponent],
+  imports: [CommonModule, NavbarComponent, PersonListComponent],
   templateUrl: './movie-details.component.html',
   styleUrl: './movie-details.component.css'
 })
 export class MovieDetailsComponent implements OnInit {
 
-  genres? : Genre[];
+  genres! : Genre[];
 
   movieId! : number;
 

@@ -1,0 +1,11 @@
+<div>
+    <img
+      *ngIf="movie.poster_path"
+      class="poster"
+      [src]="'https://image.tmdb.org/t/p/w185' + movie.poster_path"
+      [alt]="movie.title"
+    />
+    <p>{{movie.title}}</p>
+    <p>{{movie.release_date}}</p>
+    <p>{{(movie.overview || '') | wordLimit:200}}</p>
+</div>

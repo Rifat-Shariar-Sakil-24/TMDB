@@ -7,12 +7,21 @@ const API_BASE_URL = environment.production
 export const ApiEndpoints = {
   // Keep base URL clean; parameters will be appended later in MovieService
   movieListBaseURL: `${API_BASE_URL}/discover/movie`,
+
   movieDetails: (movieId: string | number) =>
     `${API_BASE_URL}/movie/${movieId}?append_to_response=credits`,
+
   searchSuggestions: (query: string) =>
-  `${API_BASE_URL}/search/multi?include_adult=false&language=en-US&page=1&query=${encodeURIComponent(query)}`,
+  `${API_BASE_URL}/search/movie?include_adult=false&language=en-US&page=1&query=${encodeURIComponent(query)}`,
+  
   genresList: `${API_BASE_URL}/genre/movie/list`,
+
   movieCertifications: `${API_BASE_URL}/certification/movie/list`,
+
   personDetails: (id: number) =>
     `${API_BASE_URL}/person/${id}?append_to_response=credits`,
+
+  searchResults: (query: string, page : number) =>
+  `${API_BASE_URL}/search/movie?query=${encodeURIComponent(query)}&page=${page}`,
+  
 };

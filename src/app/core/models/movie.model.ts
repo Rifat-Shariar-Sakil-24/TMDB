@@ -23,6 +23,9 @@ export interface MovieDetails {
   overview?: string;
   tagline?: string;
   genres?: Genre[];
-  cast: PersonCard[];
+  cast?: PersonCard[];
   original_language?: string;
 }
+
+
+
