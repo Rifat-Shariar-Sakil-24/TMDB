@@ -4,11 +4,12 @@ import { ActivatedRoute } from '@angular/router';
 import { PersonCard } from '../../core/models/person.model';
 import { CommonModule } from '@angular/common';
 import { MovieListComponent } from '../home/components/movie-list/movie-list.component';
+import { ReadMoreComponent } from '../../shared/components/read-more/read-more.component';
 
 @Component({
   selector: 'app-person-details',
   standalone: true,
-  imports: [CommonModule, MovieListComponent],
+  imports: [CommonModule, MovieListComponent, ReadMoreComponent],
   templateUrl: './person-details.component.html',
   styleUrl: './person-details.component.css'
 })

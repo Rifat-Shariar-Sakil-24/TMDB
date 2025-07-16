@@ -1,12 +1,43 @@
+<div *ngIf="personDetails" class="person-details-container">
+  <div class="person-header">
+    <div class="person-poster">
+      <img [src]="'https://image.tmdb.org/t/p/w500' + personDetails.profile_path"
+           [alt]="personDetails.name"
+           class="profile-image">
+    </div>
+    <div class="person-info">
+      <h1 class="person-name">{{ personDetails.name }}</h1>
 
-<div *ngIf="personDetails">
-  <h1>{{ personDetails.name }}</h1>
-  
-<app-home-movie-list  [movies]="personDetails.cast"> </app-home-movie-list>
+      <div class="person-facts">
+        <div *ngIf="personDetails.birthday" class="fact">
+          <h3>Birthday</h3>
+          <p>{{ personDetails.birthday | date:'longDate' }}</p>
+        </div>
+        <div *ngIf="personDetails.place_of_birth" class="fact">
+          <h3>Place of Birth</h3>
+          <p>{{ personDetails.place_of_birth }}</p>
+        </div>
+        <div *ngIf="personDetails.known_for_department" class="fact">
+          <h3>Known For</h3>
+          <p>{{ personDetails.known_for_department }}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="biography-section">
+    <h2>Biography</h2>
+    <div class="biography-text">
+      <!-- <p *ngIf="personDetails.biography">{{ personDetails.biography }}</p>
+      <p *ngIf="!personDetails.biography">No biography available.</p> -->
+      <app-read-more *ngIf="personDetails.biography" [text]="personDetails.biography" [length] = "300">/ </app-read-more>
+    </div>
+  </div>
+
+  <div class="known-for-section">
+    <h2>Known For</h2>
+    <div class="known-for-grid">
+      <app-home-movie-list [movies]="personDetails.cast"></app-home-movie-list>
+    </div>
+  </div>
 </div>
-
-
-
-
-
-

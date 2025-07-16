@@ -1,0 +1,16 @@
+<div>
+
+
+    <div *ngIf="!isCollapsed">
+        {{isCollapsed}}
+        {{text}}
+
+    </div>
+    <div *ngIf="isCollapsed"> 
+        {{text.substring(0,length) + '...'}}
+
+    </div>
+    <div (click)="isCollapsed =  !isCollapsed" class="read-more">
+        {{isCollapsed ? 'show more' : 'hide'}}
+    </div>
+</div>

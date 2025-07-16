@@ -7,7 +7,10 @@ export interface PersonCard {
   character?: string;
   biography?: string;
   birthday?: string;
-  deathday?:string;
-  cast : MovieCard[];
+  deathday?: string;
+  cast: MovieCard[];
   profile_path?: string | null;
+  known_for_department?: string;
+  gender?: number;
+  place_of_birth?: string;
 }
