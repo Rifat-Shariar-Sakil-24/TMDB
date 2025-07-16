@@ -35,6 +35,7 @@ export class MovieService {
     if (movieFilter.page) {
       params.push(`page=${movieFilter.page}`);
     }
+    
 
     // Join params with &
     if (params.length > 0) {

@@ -1,42 +1,36 @@
-<div class="filters" style="display: flex; gap: 20px;">
-  <div>
+<div class="filters">
+  <div class="filter-group">
     <label for="genreSelect">Genre</label>
-    <select id="genreSelect" [(ngModel)]="movieFilter.genreId" (ngModelChange)="emitFilterChange()">
-      <option value=0>-- Select Genre --</option>
+    <select id="genreSelect" [(ngModel)]="movieFilter.genreId" (ngModelChange)="emitFilterChange()" aria-label="Select genre">
+      <option value="0">-- All Genres --</option>
       <option *ngFor="let genre of genres" [value]="genre.id">
         {{ genre.name }}
       </option>
     </select>
   </div>
 
-
-  <div>
+  <div class="filter-group">
     <label for="certificationSelect">Certification</label>
-    <select id="certificationSelect" [(ngModel)]="movieFilter.certificate" (ngModelChange)="emitFilterChange()">
-      <option value="">-- Select Certification --</option>
+    <select id="certificationSelect" [(ngModel)]="movieFilter.certificate" (ngModelChange)="emitFilterChange()" aria-label="Select certification">
+      <option value="">-- All Certifications --</option>
       <option *ngFor="let cf of certifications" [value]="cf.certification">
         {{ cf.certification }} - {{ cf.meaning }}
       </option>
     </select>
   </div>
 
-  <div>
+  <div class="filter-group">
     <label for="sortBySelect">Sort By</label>
-    <select id="sortBySelect" [(ngModel)]="movieFilter.sort_by" (ngModelChange)="emitFilterChange()">
+    <select id="sortBySelect" [(ngModel)]="movieFilter.sort_by" (ngModelChange)="emitFilterChange()" aria-label="Sort by">
       <option *ngFor="let sort of sorts" [value]="sort.value">
         {{ sort.label }}
       </option>
     </select>
   </div>
 
-  <div>
-    <button class="clear-filters" (click)="clearFilters()">Clear Filters</button>
+  <div class="filter-group">
+    <button type="button" class="clear-filters" (click)="clearFilters()" aria-label="Clear all filters">
+      <i class="fas fa-times"></i> Clear Filters
+    </button>
   </div>
 </div>
-
-
-
-
-
-
-

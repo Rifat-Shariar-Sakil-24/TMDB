@@ -19,13 +19,16 @@
 }
 
 .movies-grid {
-  display: grid;
-  grid-auto-flow: column;
-  grid-template-rows: repeat(2, 1fr);
-
-  grid-template-columns: repeat(10, 1fr);
+  display: flex;
+  flex-wrap: wrap;
   gap: 20px;
 }
+
+.movies-grid > * {
+  flex: 1 1 150px; 
+  max-width: calc((100% - 80px) / 5); 
+}
+
 
 @media (max-width: 768px) {
   .movies-grid {

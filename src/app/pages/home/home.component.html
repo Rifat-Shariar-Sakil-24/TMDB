@@ -5,11 +5,12 @@
         <app-banner/>
     </div>
 
-    <app-movie-filter/>
+  
 
     <app-home-movie-list
         [movies]="movies">
     </app-home-movie-list>
+      <app-movie-filter/>
 
     <div class="pagination-container" *ngIf="totalPages > 1">
         <button class="pagination-btn" (click)="previousPage()" [disabled]="currentPage === 1">
