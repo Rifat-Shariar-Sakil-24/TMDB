@@ -13,4 +13,5 @@ export interface PersonCard {
   known_for_department?: string;
   gender?: number;
   place_of_birth?: string;
+  also_known_as?:string
 }

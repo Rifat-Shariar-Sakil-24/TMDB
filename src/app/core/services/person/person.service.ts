@@ -13,6 +13,7 @@ export class PersonService {
 
   getPersonDetails(id:number){
     const headers = { Authorization: environment.tmdbToken };
+    console.log(headers);
     return this.httpClient.get<any>(ApiEndpoints.personDetails(id),{headers});
   }
 }

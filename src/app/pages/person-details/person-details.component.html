@@ -1,43 +1,71 @@
-<div *ngIf="personDetails" class="person-details-container">
-  <div class="person-header">
-    <div class="person-poster">
-      <img [src]="'https://image.tmdb.org/t/p/w500' + personDetails.profile_path"
-           [alt]="personDetails.name"
-           class="profile-image">
-    </div>
-    <div class="person-info">
-      <h1 class="person-name">{{ personDetails.name }}</h1>
 
-      <div class="person-facts">
-        <div *ngIf="personDetails.birthday" class="fact">
-          <h3>Birthday</h3>
-          <p>{{ personDetails.birthday | date:'longDate' }}</p>
+<app-navbar/>
+
+
+<div *ngIf="personDetails" class="person-details-container">
+  <div class="layout-container">
+    <!-- left column, personal info here -->
+    <div class="left-column">
+      <div class="person-poster">
+        <img [src]="'https://image.tmdb.org/t/p/w500' + personDetails.profile_path"
+             [alt]="personDetails.name"
+             class="profile-image"
+             >
+        <div *ngIf="personDetails.deathday" class="ribbon">
+          <span>Deceased</span>
         </div>
-        <div *ngIf="personDetails.place_of_birth" class="fact">
-          <h3>Place of Birth</h3>
-          <p>{{ personDetails.place_of_birth }}</p>
+      </div>
+      <div class="personal-info">
+        <h1 class="person-name">{{ personDetails.name }}</h1>
+        <div class="known-for-department" *ngIf="personDetails.known_for_department">
+          {{ personDetails.known_for_department }}
         </div>
-        <div *ngIf="personDetails.known_for_department" class="fact">
-          <h3>Known For</h3>
-          <p>{{ personDetails.known_for_department }}</p>
+
+        <div class="person-facts">
+          <div *ngIf="personDetails.birthday" class="fact">
+            <h3>Born</h3>
+            <p>{{ personDetails.birthday | date:'longDate' }}
+              <span *ngIf="personDetails.deathday">
+                - {{ personDetails.deathday | date:'longDate' }} ({{ calculateAge() }} years)
+              </span>
+              <span *ngIf="!personDetails.deathday && personDetails.birthday">
+                ({{ calculateAge() }} years old)
+              </span>
+            </p>
+          </div>
+          <div *ngIf="personDetails.place_of_birth" class="fact">
+            <h3>Place of Birth</h3>
+            <p>{{ personDetails.place_of_birth }}</p>
+          </div>
+          <div *ngIf="personDetails.also_known_as && personDetails.also_known_as.length > 0" class="fact">
+            <h3>Also Known As</h3>
+            <div class="also-known-as">
+              <span *ngFor="let name of personDetails.also_known_as">{{ name }}</span>
+            </div>
+          </div>
         </div>
       </div>
     </div>
-  </div>
 
-  <div class="biography-section">
-    <h2>Biography</h2>
-    <div class="biography-text">
-      <!-- <p *ngIf="personDetails.biography">{{ personDetails.biography }}</p>
-      <p *ngIf="!personDetails.biography">No biography available.</p> -->
-      <app-read-more *ngIf="personDetails.biography" [text]="personDetails.biography" [length] = "300">/ </app-read-more>
-    </div>
-  </div>
+    <!-- right column, biography and cast movies are here -->
+    <div class="right-column">
+      <div class="biography-section" *ngIf="personDetails.biography">
+        <div class="section-header">
+          <h2>Biography</h2>
+        </div>
+        <div class="biography-text">
+          <app-read-more [text]="personDetails.biography" [length]="300"></app-read-more>
+        </div>
+      </div>
 
-  <div class="known-for-section">
-    <h2>Known For</h2>
-    <div class="known-for-grid">
-      <app-home-movie-list [movies]="personDetails.cast"></app-home-movie-list>
+      <div class="known-for-section" *ngIf="personDetails.cast && personDetails.cast.length > 0">
+        <div class="section-header">
+          <h2>Known For</h2>
+        </div>
+        <div class="known-for-grid">
+          <app-home-movie-list [movies]="personDetails.cast"></app-home-movie-list>
+        </div>
+      </div>
     </div>
   </div>
 </div>

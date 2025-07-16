@@ -13,7 +13,7 @@ export class ReadMoreComponent {
   text: string = '';
   @Input()
   length: number = 0;
-  isCollapsed: boolean = false;
+  isCollapsed: boolean = true;
   constructor() { }
 
 }

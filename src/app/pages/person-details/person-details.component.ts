@@ -1,27 +1,30 @@
 import { Component, OnInit } from '@angular/core';
-import { PersonService } from '../../core/services/person/person.service';
 import { ActivatedRoute } from '@angular/router';
 import { PersonCard } from '../../core/models/person.model';
-import { CommonModule } from '@angular/common';
+import { PersonService } from '../../core/services/person/person.service';
+import { CommonModule, DatePipe } from '@angular/common';
 import { MovieListComponent } from '../home/components/movie-list/movie-list.component';
 import { ReadMoreComponent } from '../../shared/components/read-more/read-more.component';
+import { NavbarComponent } from '../../shared/components/navbar/navbar.component';
+
 
 @Component({
   selector: 'app-person-details',
-  standalone: true,
-  imports: [CommonModule, MovieListComponent, ReadMoreComponent],
   templateUrl: './person-details.component.html',
-  styleUrl: './person-details.component.css'
+  styleUrls: ['./person-details.component.css'],
+  imports:[DatePipe, MovieListComponent,ReadMoreComponent,CommonModule,NavbarComponent],
+  standalone: true,
 })
 export class PersonDetailsComponent implements OnInit {
+  personId! : number;
+  personDetails!: PersonCard;
+  loading = true;
+  error: string | null = null;
 
-  private personId! : number;
-
-  personDetails! : PersonCard;
-
-
-  constructor(private route: ActivatedRoute,
-    private personService: PersonService) { }
+  constructor(
+    private route: ActivatedRoute,
+    private personService: PersonService
+  ) {}
 
   ngOnInit(): void {
     this.route.paramMap.subscribe(
@@ -36,6 +39,21 @@ export class PersonDetailsComponent implements OnInit {
     )
   }
 
+  calculateAge(): string {
+    if (!this.personDetails?.birthday) return '';
 
+    const birthDate = new Date(this.personDetails.birthday);
+    const today = new Date();
+    let age = today.getFullYear() - birthDate.getFullYear();
+    const monthDiff = today.getMonth() - birthDate.getMonth();
+
+    if (monthDiff < 0 || (monthDiff === 0 && today.getDate() < birthDate.getDate())) {
+      age--;
+    }
+
+    return age.toString();
+  }
+
+ 
 
 }
