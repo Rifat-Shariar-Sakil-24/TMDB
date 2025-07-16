@@ -44,7 +44,7 @@ export class MovieService {
     return this.httpClient.get<any>(url, { headers });
   }
 
-  getMovieDetails(movieId: string | number): Observable<MovieDetails> {
+  getMovieDetails(movieId: string | number): Observable<any> {
     const headers = { Authorization: environment.tmdbToken };
     return this.httpClient.get<any>(ApiEndpoints.movieDetails(movieId), {
       headers,

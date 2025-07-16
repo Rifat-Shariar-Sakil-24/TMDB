@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { MovieService } from '../../core/services/movie.service';
 import { CommonModule } from '@angular/common';
-import { MovieDetails } from '../../core/models/movie.model';
+import { Genre, MovieDetails } from '../../core/models/movie.model';
 import { CastListComponent } from "./components/cast-list/cast-list.component";
 import { CastCardComponent } from "../../shared/components/cast-card/cast-card/cast-card.component";
 import { NavbarComponent } from "../../shared/components/navbar/navbar.component";
@@ -18,7 +18,7 @@ import { PersonListComponent } from "./components/person-list/person-list.compon
 })
 export class MovieDetailsComponent implements OnInit {
 
-  genres : any[] = [];
+  genres? : Genre[];
 
   movieId! : number;
 
@@ -37,6 +37,7 @@ export class MovieDetailsComponent implements OnInit {
         this.movieService.getMovieDetails(this.movieId).subscribe(response=>{
           this.genres = response.genres;
           this.movie = response; 
+          this.movie.cast = response.credits.cast;
           console.log(this.movie);
         })
     
