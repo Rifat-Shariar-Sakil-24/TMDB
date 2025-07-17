@@ -35,7 +35,7 @@ export class SearchResultsComponent {
   getResults() {
     this.searchService.getSearchResults(this.query,this.currentPage).subscribe((response) => {
       this.movies = response.results;
-      console.log('rec' + this.movies.length);
+      //console.log('rec' + this.movies.length);
     });
   }
 }

@@ -2,19 +2,26 @@
   display:flex;
   max-width:1300px;
   margin:0 auto;
-  padding:0 20px 60px;
+  /* padding:0 20px 60px; */
   gap:32px;
+  margin-top: 20px;
 }
-
+.left-column{
+  display: flex;
+  flex-direction: column;
+}
 .filter-sidebar{
-  flex:0 0 220px;
+  /* flex:0 0 220px; */
   background:#f4f4f4;
   border-radius:8px;
   padding:24px 18px;
   box-shadow:0 2px 6px rgba(0,0,0,.05);
   height:min-content;
 }
-
+.search-header{
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
 .sidebar-title{
   margin:0 0 12px;
   font-size:18px;

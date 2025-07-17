@@ -1,0 +1,16 @@
+.search-results-container {
+  position: relative;
+  z-index: 1000; 
+  width: 100%;
+}
+
+app-navbar {
+  position: relative;
+  z-index: 1100;
+}
+
+
+:host {
+  display: block;
+  position: relative;
+}

@@ -6,7 +6,6 @@ import { MovieListComponent } from './components/movie-list/movie-list.component
 import { MovieCard } from '../../core/models/movie.model';
 import { NavbarComponent } from '../../shared/components/navbar/navbar.component';
 import { BannerComponent } from './components/banner/banner.component';
-import { SearchResultsComponent } from '../../shared/components/search-results/search-results.component';
 import { MovieFilterComponent } from './components/movie-filter/movie-filter.component';
 import { MovieFilterService } from '../../core/services/movie-filter/movie-filter.service';
 import { Filter } from '../../core/models/filter.model';
@@ -20,7 +19,6 @@ import { PaginationBarComponent } from '../../shared/components/pagination-bar/p
     MovieListComponent,
     NavbarComponent,
     BannerComponent,
-    SearchResultsComponent,
     MovieFilterComponent,
     PaginationBarComponent,
   ],
