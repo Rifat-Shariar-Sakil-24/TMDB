@@ -1,10 +1,10 @@
-.search-results-container{
-  display:flex;
-  max-width:1300px;
-  margin:0 auto;
-  /* padding:0 20px 60px; */
-  gap:32px;
-  margin-top: 20px;
+.search-results-container {
+  display: flex;
+  max-width: 1300px;
+  margin: 0 auto;
+  padding: 84px 20px 60px; /* Added top padding to account for fixed navbar */
+  gap: 32px;
+  min-height: 100vh;
 }
 .left-column{
   display: flex;
@@ -19,8 +19,8 @@
   height:min-content;
 }
 .search-header{
-  margin-top: 20px;
-  margin-bottom: 20px;
+  /* margin-top: 20px;
+  margin-bottom: 20px; */
 }
 .sidebar-title{
   margin:0 0 12px;
