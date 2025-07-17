@@ -1,0 +1,17 @@
+ul{
+  display:flex;
+  flex-direction:column;
+  gap:32px;          
+  padding:0 16px;      
+  list-style:none;
+  max-width:900px;     
+  width:100%;
+  margin:0;
+
+}
+li{ width:100%; animation:fadeIn .6s ease forwards; }
+
+@keyframes fadeIn{
+  from{opacity:0; transform:translateY(20px);}
+  to  {opacity:1; transform:none;}
+}

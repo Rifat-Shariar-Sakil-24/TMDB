@@ -1,10 +1,32 @@
-<div>
-    <app-movie-list-vertical *ngIf="movies"  [movies]="movies"></app-movie-list-vertical>
+<section class="search-header">
+  <h2>Search results for “{{ query }}”</h2>
+</section>
+
+<div class="search-results-container">
+  <!-- left column -->
+  <aside class="filter-sidebar">
+    <h3 class="sidebar-title">Search Types</h3>
+    <ul class="type-menu">
+      <li class="active">Movies</li>
+      <li>TV Shows</li>
+      <li>People</li>
+      <li>Collections</li>
+      <li>Companies</li>
+      <li>Keywords</li>
+    </ul>
+  </aside>
+
+  <!-- right column -->
+  <div class="results-content">
+    <app-movie-list-vertical
+      *ngIf="movies"
+      [movies]="movies">
+    </app-movie-list-vertical>
 
     <app-pagination-bar
-    [totalPages]="totalPages"
-    [(currentPage)]="currentPage"
-    (currentPageChange)="getResults()"
-  >
-  </app-pagination-bar>
+      [totalPages]="totalPages"
+      [(currentPage)]="currentPage"
+      (currentPageChange)="getResults()">
+    </app-pagination-bar>
+  </div>
 </div>

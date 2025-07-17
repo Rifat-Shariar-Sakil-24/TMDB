@@ -8,8 +8,9 @@ import { CommonModule } from '@angular/common';
   standalone: true,
   imports: [WordLimitPipe,CommonModule],
   templateUrl: './movie-card-wide.component.html',
-  styleUrl: './movie-card-wide.component.css'
+  styleUrls: ['./movie-card-wide.component.css']
 })
 export class MovieCardWideComponent {
   @Input() movie! : MovieDetails;
+
 }

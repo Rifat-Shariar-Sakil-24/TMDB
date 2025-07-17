@@ -25,6 +25,7 @@ export interface MovieDetails {
   genres?: Genre[];
   cast?: PersonCard[];
   original_language?: string;
+    vote_average?: number;
 }
 
 
