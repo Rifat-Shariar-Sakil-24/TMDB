@@ -4,16 +4,17 @@
     <h1 class="banner-title">Welcome.</h1>
     <h2 class="banner-subtitle">Millions of movies, TV shows and people to discover. Explore now.</h2>
     </div>
-    
-    
+
+
     <div class="search-container">
-      <form class="banner-search-form">
-        <input 
-          type="text" 
-          placeholder="Search for a movie, tv show, person......" 
-          class="banner-search-input">
+      <form class="banner-search-form" (ngSubmit)="onSearch($event)">
+        <input type="text" [(ngModel)]="searchQuery" name="query"
+               placeholder="Search for a movie, tv show, person......" class="banner-search-input" required>
         <button type="submit" class="banner-search-button">Search</button>
       </form>
     </div>
+
   </div>
 </div>
+
+
