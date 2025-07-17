@@ -10,8 +10,21 @@
   </div>
 
   <div class="filter-group">
+    <label for="countrySelect">Country</label>
+    <select id="countrySelect" [(ngModel)]="selectedCountry" (ngModelChange)="onCountryChange()" aria-label="Select country">
+      <option *ngFor="let countryCode of getCountryCodes()" [value]="countryCode">
+        {{ getCountryName(countryCode) }} ({{ countryCode }})
+      </option>
+    </select>
+  </div>
+
+  <div class="filter-group">
     <label for="certificationSelect">Certification</label>
-    <select id="certificationSelect" [(ngModel)]="movieFilter.certificate" (ngModelChange)="emitFilterChange()" aria-label="Select certification">
+    <select id="certificationSelect"
+            [(ngModel)]="movieFilter.certification"
+            (ngModelChange)="onCertificationChange()"
+            [disabled]="!selectedCountry"
+            aria-label="Select certification">
       <option value="">-- All Certifications --</option>
       <option *ngFor="let cf of certifications" [value]="cf.certification">
         {{ cf.certification }} - {{ cf.meaning }}

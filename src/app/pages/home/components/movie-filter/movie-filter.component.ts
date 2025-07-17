@@ -13,10 +13,12 @@ import { Filter } from '../../../../core/models/filter.model';
   styleUrls: ['./movie-filter.component.css'],
 })
 export class MovieFilterComponent implements OnInit {
-  constructor(private movieFilterService: MovieFilterService) {}
+  constructor(private movieFilterService: MovieFilterService) { }
 
   genres!: Genre[];
-  certifications!: any[];
+  allCertifications: any = {};
+  certifications: any[] = [];
+  selectedCountry: string = '';
   sorts: { label: string; value: string }[] = [
     { label: 'Popularity ↓', value: 'popularity.desc' },
     { label: 'Popularity ↑', value: 'popularity.asc' },
@@ -25,39 +27,82 @@ export class MovieFilterComponent implements OnInit {
   movieFilter!: Filter;
 
   ngOnInit(): void {
-
     this.clearFilters();
 
     this.movieFilterService.getMovieGenreList().subscribe((response) => {
       this.genres = response.genres;
-      // console.log(this.genres)
     });
 
     this.movieFilterService
       .getMovieCertificationList()
       .subscribe((response) => {
-        this.certifications = response.certifications?.['BR'] ?? [];
+        this.allCertifications = response.certifications;
+        const firstCountry = Object.keys(this.allCertifications)[0];
+        if (firstCountry) {
+          this.selectedCountry = firstCountry;
+          this.certifications = this.allCertifications[firstCountry] || [];
+        }
 
-        console.log(response.certifications['BR']);
       });
+
+
+    //this.emitFilterChange();
   }
 
-  // selectedGenre: number = 0;
-  // selectedCertificate: string = '';
-  // selectedSort: string = 'popularity.desc';
+  onCountryChange() {
+    this.certifications = this.allCertifications[this.selectedCountry] || [];
+    this.movieFilter.certification = '';
+    this.movieFilter.certification_country = this.selectedCountry;
+    this.emitFilterChange();
+  }
+
+  onCertificationChange() {
+    console.log('Selected Country:', this.selectedCountry);
+    console.log('Selected Certification:', this.movieFilter.certification);
+    this.movieFilter.certification_country = this.selectedCountry;
+    this.emitFilterChange();
+  }
 
   clearFilters() {
     this.movieFilter = {
       genreId: 0,
-      certificate: '',
+      certification: '',
       sort_by: 'popularity.desc',
-      page:1
+      page: 1
     };
+
+    delete this.movieFilter.certification_country;
     this.emitFilterChange();
   }
 
   emitFilterChange() {
+    //console.log("on movie filter"+this.movieFilter.certification_country);
     this.movieFilterService.setFilter(this.movieFilter);
-    console.log(this.movieFilter);
+
+  }
+
+
+  getCountryName(countryCode: string): string {
+    const countryNames: { [key: string]: string } = {
+      'US': 'United States',
+      'GB': 'United Kingdom',
+      'CA': 'Canada',
+      'AU': 'Australia',
+      'DE': 'Germany',
+      'FR': 'France',
+      'ES': 'Spain',
+      'IT': 'Italy',
+      'JP': 'Japan',
+      'KR': 'South Korea',
+      'IN': 'India',
+      'BR': 'Brazil',
+      'RU': 'Russia',
+      'CN': 'China'
+    };
+    return countryNames[countryCode] || countryCode;
+  }
+
+  getCountryCodes(): string[] {
+    return Object.keys(this.allCertifications);
   }
 }

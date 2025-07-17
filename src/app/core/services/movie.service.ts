@@ -36,6 +36,13 @@ export class MovieService {
       params.push(`page=${movieFilter.page}`);
     }
     
+    if(movieFilter.certification_country){
+      params.push(`certification_country=${movieFilter.certification_country}`)
+    }
+
+    if(movieFilter.certification){
+      params.push(`certification=${movieFilter.certification}`)
+    }
 
     // Join params with &
     if (params.length > 0) {

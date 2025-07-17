@@ -1,6 +1,7 @@
 export interface Filter {
   genreId?: number,
-  certificate?: string,
+  certification_country?: string,
+  certification?: string,
   sort_by?:string,
   page?:number
 }

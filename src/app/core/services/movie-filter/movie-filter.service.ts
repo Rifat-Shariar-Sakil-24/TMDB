@@ -27,6 +27,7 @@ export class MovieFilterService {
   movieFilter$ = this.movieFilter.asObservable();
 
   setFilter(filterObj: Filter) {
+    console.log(filterObj);
     this.movieFilter.next(filterObj);
   }
 }
